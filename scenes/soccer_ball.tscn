@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c21sd8gwlfyxt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gh56e"]
+rough = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gh56e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh56e"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gh56e"]
+material = SubResource("StandardMaterial3D_gh56e")
+
+[node name="SoccerBall" type="RigidBody3D" unique_id=1535857426]
+physics_material_override = SubResource("PhysicsMaterial_gh56e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=169300222]
+shape = SubResource("SphereShape3D_gh56e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=677358613]
+mesh = SubResource("SphereMesh_gh56e")

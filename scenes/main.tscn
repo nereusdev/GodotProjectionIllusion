@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://nigp8huowf8j"]
+
+[ext_resource type="PackedScene" uid="uid://dafn5pujcmydu" path="res://scenes/ground.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cospigw5hg163" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://rhwfucmxl3t" path="res://scenes/floating_shape.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c21sd8gwlfyxt" path="res://scenes/soccer_ball.tscn" id="4_jyhfs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
+rough = true
+
+[node name="Main" type="Node3D" unique_id=1367983339]
+
+[node name="Ground" parent="." unique_id=1439873320 instance=ExtResource("1_0wfyh")]
+physics_material_override = SubResource("PhysicsMaterial_jyhfs")
+
+[node name="FloatingShape" parent="." unique_id=892953419 instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7942991, 0.4686128)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1465325582]
+transform = Transform3D(1, 0, 0, 0, 0.57513374, 0.8180594, 0, -0.8180594, 0.57513374, 0, 8.378758, 17.1151)
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1070927247]
+script = ExtResource("1_sugp2")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1695236818]
+transform = Transform3D(1, 0, 0, 0, 0.95137423, 0.3080375, 0, -0.3080375, 0.95137423, 1.1920929e-06, 3.7752576, 10.74352)
+
+[node name="SoccerBall" parent="." unique_id=1535857426 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4917588, 0)
+
+[node name="ResetFloatingShape" type="Timer" parent="." unique_id=2023459564]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ResetFloatingShape" to="CameraPivot" method="_on_reset_floating_shape_timeout"]
