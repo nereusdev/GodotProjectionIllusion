@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbv0vlp2bgecw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yklfw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j54ii"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j54ii"]
+height = 1.5004883
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=801498768]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=742545229]
+transform = Transform3D(0.97546625, 0, 0, 0, 1.8037182, 0, 0, 0, 0.97546625, 0, 0, 0)
+mesh = SubResource("SphereMesh_yklfw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1192923711]
+transform = Transform3D(0.5868064, 0, 0, 0, 1.177518, 0, 0, 0, 0.5868064, 0, 1.1882312, 0)
+mesh = SubResource("SphereMesh_j54ii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1393044707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14617291, 0)
+shape = SubResource("CapsuleShape3D_j54ii")

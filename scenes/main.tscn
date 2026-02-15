@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cospigw5hg163" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://rhwfucmxl3t" path="res://scenes/floating_shape.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c21sd8gwlfyxt" path="res://scenes/soccer_ball.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dbv0vlp2bgecw" path="res://scenes/bowling_pin.tscn" id="5_tbgi4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
 rough = true
@@ -26,10 +27,13 @@ script = ExtResource("1_sugp2")
 transform = Transform3D(1, 0, 0, 0, 0.95137423, 0.3080375, 0, -0.3080375, 0.95137423, 1.1920929e-06, 3.7752576, 10.74352)
 
 [node name="SoccerBall" parent="." unique_id=1535857426 instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4917588, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.526062, 1.4917588, 8.129364)
 
 [node name="ResetFloatingShape" type="Timer" parent="." unique_id=2023459564]
 wait_time = 5.0
 one_shot = true
+
+[node name="RigidBody3D" parent="." unique_id=801498768 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.815556, 1.0984313, 9.356272)
 
 [connection signal="timeout" from="ResetFloatingShape" to="CameraPivot" method="_on_reset_floating_shape_timeout"]
